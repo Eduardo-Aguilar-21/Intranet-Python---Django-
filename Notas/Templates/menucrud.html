@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %} Gestion de Distrito {% endblock %}
+
+{% block body %}
+
+{% load static %}
+
+<div class="row  ml-4">
+    <div class="card mx-4 my-4 " style="width: 18rem;">
+        <img src="{% static 'img/usuario2.jpg' %}" class="card-img-top" alt="..."  height="300px">
+        <div class="card-body">
+            <h5 class="card-title">Usuario</h5>
+            <p class="card-text">Actualice aqui los datos de los usuarios</p>
+        </div>
+        
+        <div class="card-body">
+            <a href="/indusu/" class="card-link">Ir</a>
+        </div>
+    </div>
+
+    <div class="card mx-4 my-4" style="width: 18rem;">
+        <img src="{% static 'img/tipousuario.jpg' %}" class="card-img-top" alt="..."  height="300px">
+        <div class="card-body">
+            <h5 class="card-title">Tipo Usuario</h5>
+            <p class="card-text">Actualice aqui los datos de los tipos de usuarios</p>
+        </div>
+        
+        <div class="card-body">
+            <a href="/indtip/" class="card-link">Ir</a>
+        </div>
+    </div>
+
+    <div class="card mx-4 my-4" style="width: 18rem;">
+        <img src="{% static 'img/distrito.jpg' %}" class="card-img-top" alt="..."  height="300px">
+        <div class="card-body">
+            <h5 class="card-title">Distrito</h5>
+            <p class="card-text">Actualice aqui los datos de los Distritos</p>
+        </div>
+
+        <div class="card-body">
+            <a href="/inddis/" class="card-link">Ir</a>
+        </div>
+    </div>
+
+    <div class="card mx-4 my-4" style="width: 18rem;">
+        <img src="{% static 'img/carrera.jpg' %}" class="card-img-top" alt="..."  height="300px">
+        <div class="card-body">
+            <h5 class="card-title">Carrera</h5>
+            <p class="card-text">Actualice aqui los datos de las Carreras</p>
+        </div>
+     
+        <div class="card-body">
+            <a href="/indcar/" class="card-link">Ir</a>
+        </div>
+    </div>
+
+    <div class="card mx-4 my-4" style="width: 18rem;">
+        <img src="{% static 'img/curso.jpg' %}" class="card-img-top" alt="..."  height="300px">
+        <div class="card-body">
+            <h5 class="card-title">Cursos</h5>
+            <p class="card-text">Actualice aqui los datos de los Cursos</p>
+        </div>
+       
+        <div class="card-body">
+            <a href="/indcur/" class="card-link">Ir</a>
+        </div>
+    </div>
+
+    <div class="card mx-4 my-4" style="width: 18rem;">
+        <img src="{% static 'img/estudiante.jpg' %}" class="card-img-top" alt="..."  height="300px">
+        <div class="card-body">
+            <h5 class="card-title">Estudiantes</h5>
+            <p class="card-text">Actualice aqui los datos de los Estudiantes</p>
+        </div>
+       
+        <div class="card-body">
+            <a href="/indest/" class="card-link">Ir</a>
+        </div>
+    </div>
+
+    <div class="card mx-4 my-4" style="width: 18rem;">
+        <img src="{% static 'img/profesor.jpg' %}" class="card-img-top" alt="..."  height="300px">
+        <div class="card-body">
+            <h5 class="card-title">Profesor</h5>
+            <p class="card-text">Actualice aqui los datos de los Profesores</p>
+        </div>
+     
+        <div class="card-body">
+            <a href="/indpro/" class="card-link">Ir</a>
+        </div> 
+    </div>
+
+    <div class="card mx-4 my-4" style="width: 18rem;">
+        <img src="{% static 'img/administractivo.jpg' %}" class="card-img-top" alt="..."  height="300px">
+        <div class="card-body">
+            <h5 class="card-title">Administractivo</h5>
+            <p class="card-text">Actualice aqui los datos del personal Administractivo</p>
+        </div>
+      
+        <div class="card-body">
+            <a href="/indadm/" class="card-link">Ir</a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

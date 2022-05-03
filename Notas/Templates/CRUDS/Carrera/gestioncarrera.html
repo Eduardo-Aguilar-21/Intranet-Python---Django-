@@ -1,0 +1,70 @@
+{% extends "../../base.html" %}
+
+{% block title %} Gestion de Carreras {% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 "> 
+      {% if messages %}
+        {% for message in messages %}
+
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong class="text-dark">{{ message }}</strong>
+        </div>
+
+        {% endfor %}
+        {% endif %}
+        <h2>Registro de Carreras </h2>
+        <div class="card">
+            <div class="card-body">
+                    <form action="/registarcarrera/" method="POST" enctype="multipart/form-data">  {% csrf_token %}
+                       
+                        <div class="form-group my-2">
+                            <label for="txtnomcar" class="form-label">Nombre de carrera</label>
+                            <input type="text" id="txtnomcar" name="txtnomcar" class="form-control" placeholder="Nombre" minlength="1" maxlength="50" required>
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="txtdescar" class="form-label">Descripcion de carrera</label>
+                            <input type="text" id="txtdescar" name="txtdescar" class="form-control" placeholder="Descripcion" required>
+                        </div>   
+                        <div class="form-group my-2">
+                            <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8 ">
+        <div class="table-responsive">
+            <h1>Listado de Carreras </h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre Carrera</th>
+                        <th>Descripcion de Carrera</th>
+                        <th>Estado de Carrera</th>
+                        <th class="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in carrera %}    
+                    <tr> 
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.nomcarrera}}</td>
+                        <td>{{c.descarrera}}</td>
+                        <td>{{c.estcarrera}}</td>
+                        <td><a href="/edicioncarrera/{{c.id}}"  class="btn btn-info">Editar</a></td>
+                        <td><a href="/eliminarcarrera/{{c.id}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>    
+
+{% endblock %}

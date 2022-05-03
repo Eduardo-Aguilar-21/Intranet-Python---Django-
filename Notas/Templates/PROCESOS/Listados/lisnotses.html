@@ -1,0 +1,57 @@
+{% extends "../../basepro.html" %}
+
+{% block title %}Listado de Notas de sesion {% endblock %}
+
+{% block body %}
+
+<div class="row">
+   
+    
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+        <div class="table-responsive">
+            <h1>Listado de Notas de sesion </h1>
+            
+            <table class="table table-striped" >
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Profesor</th>
+                        <th>Curso</th>
+                        <th>Alumno</th>
+
+                        
+                        <th>Nota Sesion 1 </th>
+                        <th>Nota Sesion 2 </th>
+                        <th>Nota Sesion 3 </th>
+                        <th>Nota Sesion 4 </th>
+                        <th>Nota Sesion 5 </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in notas %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.profesor.nompro}}</td>
+                        <td>{{c.curso.nomcur}}</td>
+                        <td>{{c.alumno.nomest}}</td>
+
+                        
+                        <td>{{c.sesion1_nt}}</td>
+                        <td>{{c.sesion2_nt}}</td>
+                        <td>{{c.sesion3_nt}}</td>
+                        <td>{{c.sesion4_nt}}</td>
+                        <td>{{c.sesion5_nt}}</td>
+                    </tr>
+                    {% endfor %}
+
+            
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

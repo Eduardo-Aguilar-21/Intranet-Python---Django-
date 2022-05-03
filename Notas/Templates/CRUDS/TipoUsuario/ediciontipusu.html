@@ -1,0 +1,30 @@
+{% extends "../../base.html" %}
+
+{% block title %} Gestion de tipo de usuario {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Registro de tipo de usuario</h2>
+        <div class="card">
+            <div class="card-body">
+                    <form action="/editartipousu/" method="POST" enctype="multipart/form-data">  {% csrf_token %}
+                       
+                        <div class="form-group my-2">
+                            <label for="txtid" class="form-label">Id de tipo de usuario</label>
+                            <input type="text" id="txtid" name="txtid" class="form-control" placeholder="Nombre" value="{{tipousu.id}}" readonly>
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="txtnomtipusu" class="form-label">Ingrese el tipo de usuario</label>
+                            <input type="text" id="txtnomtipusu" name="txtnomtipusu" class="form-control" placeholder="Nombre" value="{{tipousu.nomtipusu}}" minlength="1" maxlength="20" required>
+                        </div> 
+                        <div class="form-group my-2">
+                            <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

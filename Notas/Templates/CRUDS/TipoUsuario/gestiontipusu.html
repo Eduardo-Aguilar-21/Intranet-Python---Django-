@@ -1,0 +1,88 @@
+{% extends "../../base.html" %}
+
+{% block title %} Gestion de tipo de usuario {% endblock %}
+
+{% block js %}
+
+<script>
+    function eliminartipousuario(id){
+        Swal.fire({
+            "tittle":"¿Seguro de eliminar?",
+            "text": "No se puede deshacer esta acción",
+            "icon": "danger",
+            "showCancelButton":true,
+            "cancelButtonText":"NO, Cancelar",
+            "confirmButtonText":"SI, Eliminar",
+            "reverseButtons":true,
+            "confirmButtonColor": "#dc3545"
+        })
+        .then(function(result){
+            if(result.isConfirmed){
+                window.location.href = "/eliminartipousuario/"+id
+            }
+        })
+    }
+</script>
+
+{% endblock %}
+{% block body %}
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 "> 
+      <!-- {% if messages %}
+        {% for message in messages %}
+
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+           <strong class="text-dark">{{ message }}</strong> 
+        </div>
+        
+        {% endfor %}
+        {% endif %}
+        -->
+        <h2>Registro de tipo de usuario</h2>
+        <div class="card">
+            <div class="card-body ">
+                    <form action="/registartipousuario/" method="POST" enctype="multipart/form-data">  {% csrf_token %}
+                       
+                        <div class="form-group my-2">
+                            <label for="txtnomtipusu" class="form-label">Ingrese el tipo de usuario</label>
+                            <input type="text" id="txtnomtipusu" name="txtnomtipusu" class="form-control" placeholder="Nombre" minlength="1" maxlength="20" required>
+                        </div> 
+                        <div class="form-group my-2">
+                            <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                        </div>  
+                    </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8 ">
+        <div class="table-responsive">
+            <h1>Listado de Tipos de usuario</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                          <th>Nombre de tipo usuario</th>
+                        <th>Estado de usuario</th>
+                        <th class="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in tipo %}    
+                    <tr> 
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.nomtipusu}}</td>
+                        <td>Activo</td>
+                        <td><a href="/ediciontipousuario/{{c.id}}"  class="btn btn-info">Editar</a></td>
+                        <td><a href="#" onClick="eliminartipousuario ({{c.id}})" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>    
+
+{% endblock %}

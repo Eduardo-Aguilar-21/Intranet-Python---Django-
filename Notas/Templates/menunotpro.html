@@ -1,0 +1,60 @@
+{% extends "basepro.html" %}
+
+{% block title %} Gestion Notas {% endblock %}
+
+{% block body %}
+
+{% load static %}
+
+<div class="row  ml-4">
+
+
+    <div class="card mx-4 my-4 " style="width: 18rem;">
+        <img src="{% static 'img/usuario2.jpg' %}" class="card-img-top" alt="..."  height="300px">
+        <div class="card-body">
+            <h5 class="card-title">Registro Notas</h5>
+            <p class="card-text">Registre aqui las notas obtenidas por los alumnos en las sesiones</p>
+        </div>
+        
+
+        <div class="card-body">
+            <div class="d-grid gap-2">
+                    <a href="/indnts/" class="btn btn-success">Ir</a>
+            </div>
+        </div>
+    </div>
+   
+    
+    <div class="card mx-4 my-4 " style="width: 18rem;">
+        <img src="{% static 'img/usuario2.jpg' %}" class="card-img-top" alt="..."  height="300px">
+        <div class="card-body">
+            <h5 class="card-title">Listadado general de notas</h5>
+            <p class="card-text">Vea aqui el listado General de las notas obtenidas por los estudiantes durante sesiones y tareas</p>
+        </div>
+        
+
+        <div class="card-body">
+            <div class="d-grid gap-2">
+                    <a href="/indlisgennot/" class="btn btn-success">Ir</a>
+            </div>
+        </div>
+    </div> 
+
+    <div class="card mx-4 my-4 " style="width: 18rem;">
+        <img src="{% static 'img/usuario2.jpg' %}" class="card-img-top" alt="..."  height="300px">
+        <div class="card-body">
+            <h5 class="card-title">Listadado de notas de Sesiones</h5>
+            <p class="card-text">Vea aqui un listado con las notas obtenidas por sesiones de los alumnos</p>
+        </div>
+        
+
+        <div class="card-body">
+            <div class="d-grid gap-2">
+                    <a href="/indlisnotses/" class="btn btn-success">Ir</a>
+            </div>
+        </div>
+    </div> 
+
+
+</div>
+{% endblock %}

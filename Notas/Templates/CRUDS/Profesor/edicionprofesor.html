@@ -1,0 +1,64 @@
+{% extends "../../base.html" %}
+
+{% block title %} Gestion de Profesor{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Registro Profesor</h2>
+        <div class="card">
+            <div class="card-body">
+                    <form action="/editarpro/" method="POST" enctype="multipart/form-data">  {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" id="txtid" name="txtid" class="form-control" placeholder="Id" value="{{profesor.id}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="txtnompro" name="txtnompro" class="form-control" placeholder="Nombre estudiante" value="{{profesor.nompro}}" minlength="1" maxlength="20" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="txtapepro" name="txtapepro" class="form-control" placeholder="Apellido" value="{{profesor.apepro}}" minlength="1" maxlength="30" required>
+                        </div> 
+                        <div class="form-group">
+                            <input type="text" id="txtdnipro" name="txtdnipro" class="form-control" placeholder="DNI" value="{{profesor.dnipro}}" required>
+                        </div> 
+                        <div class="form-group">
+                            <input type="text" id="txtdirpro" name="txtdirpro" class="form-control" placeholder="Direccion" value="{{profesor.direccionpro}}" required>
+                        </div> 
+                        <div class="form-group">
+                            <input type="text" id="txtemailpro" name="txtemailpro" class="form-control" placeholder="Email" value="{{profesor.emailpro}}" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="txtestpro" name="txtestpro" class="form-control" placeholder="Estado" value="{{profesor.estpro}}" required>
+                        </div> 
+                        
+                       
+
+                      <div class="form-group">
+                        <label>Distrito</label>
+                        <select class="form-control" name="txtdis" id="txtdis">
+                            {% for t in distrito %}
+                            <option value="{{t.id}}" id="cod">{{t.nomdis}}</option>
+                            {%endfor%}
+                        </select>
+
+                        <div class="form-group">
+                            <label>Usuario</label>
+                            <select class="form-control" name="txtusu" id="txtusu">
+                                {% for t in usuario %}
+                                <option value="{{t.id}}" id="cod">{{t.nomusu}}</option>
+                                {%endfor%}
+                            </select>
+                      </div>
+                  </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                        </div>
+                       
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

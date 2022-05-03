@@ -1,0 +1,33 @@
+{% extends "../../base.html" %}
+
+{% block title %} Editar Curso {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Editar Curso</h2>
+        <div class="card">
+            <div class="card-body">
+                    <form action="/editarcur/" method="POST" enctype="multipart/form-data">  {% csrf_token %}
+                        <div class="form-group my-2">
+                            <label for="txtid" class="form-label">Id de Curso</label>
+                            <input type="text" id="txtid" name="txtid" class="form-control" placeholder="COdigo" value="{{curso.id}}" readonly>
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="txtnomcur" class="form-label">Nombre de Curso</label>
+                            <input type="text" id="txtnomcur" name="txtnomcur" class="form-control" placeholder="Nombre Curso" minlength="1" maxlength="20" value="{{curso.nomcur}}" required>
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="txtcreditos" class="form-label">Creditos de Curso</label>
+                            <input type="text" id="txtcreditos" name="txtcreditos" class="form-control" placeholder=" Creditos" minlength="1" maxlength="20" value="{{curso.creditos}}" required>
+                        </div> 
+                        <div class="form-group my-2">
+                            <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "../../basepro.html" %}
+
+{% block title %}Registrar Notas de tareas{% endblock %}
+
+{% block body %}
+
+<div class="row">
+
+
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+        <div class="table-responsive">
+            <h1>Tarea 3</h1>
+           
+                <div class="form-group">
+                    <input type="text" id="txtnta" name="txtnta" class="form-control" placeholder="Titulo" minlength="1"
+                        maxlength="20" required>
+                </div>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Profesor</th>
+                        <th>Curso</th>
+                        <th>Alumno</th>
+
+
+                        <th>Titutlo Tarea</th>
+                        <th>Solucion Tarea</th>
+                        <th>Nota Tarea</th>
+                        <th class="2">Revisar tarea</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in notas %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.profesor.nompro}}</td>
+                        <td>{{c.curso.nomcur}}</td>
+                        <td>{{c.alumno.nomest}}</td>
+
+                        <td>{{c.tarea3_info.tittar}}</td>
+                        <td>{{c.soltarea3}}</td>
+                        <td>{{c.notatarea3}}</td>
+                        <td><a href="/editarntt3/{{c.id}}" class="btn btn-info">Editar Notas</a></td>
+                    </tr>
+                    {% endfor %}
+
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

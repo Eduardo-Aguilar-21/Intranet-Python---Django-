@@ -1,0 +1,57 @@
+{% extends "../../basepro.html" %}
+
+{% block title %} Asistencia {% endblock %}
+
+{% block body %}
+
+<div class="row">
+   
+    
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8 ">
+        <div class="table-responsive">
+            <h1>Asistencia Sesion 3</h1>
+            
+            <table class="table table-striped" >
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Profesor</th>
+                        <th>Curso</th>
+                        <th>Alumno</th>
+
+                        
+                        <th>Asistencia S3</th>
+                        
+                        <th></th>
+                        <th class="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in notas %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.profesor.nompro}}</td>
+                        <td>{{c.curso.nomcur}}</td>
+                        <td>{{c.alumno.nomest}}</td>
+
+                        
+                        <td>{{c.sesion3_asis}}</td>
+            
+
+
+                        <td><a href="/asistios3/{{c.id}}"   class="btn btn-info">Asistio</a></td>
+                        <td><a href="/faltos3/{{c.id}}" class="btn btn-danger">Falto</a></td>
+                        <td><a href="/justificados3/{{c.id}}" class="btn btn-info">Justificado</a></td>
+                    </tr>
+                    {% endfor %}
+
+            
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

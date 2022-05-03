@@ -1,0 +1,125 @@
+{% extends "../../base.html" %}
+
+{% block title %} Gestion de Estudiante {% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 "> 
+      {% if messages %}
+        {% for message in messages %}
+
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong class="text-dark">{{ message }}</strong>
+        </div>
+
+        {% endfor %}
+        {% endif %}
+        <h2>Registro de Estudiante</h2>
+        <div class="card">
+            <div class="card-body">
+                    <form action="/registarestudiante/" method="POST" enctype="multipart/form-data">  {% csrf_token %}
+                       
+                        <div class="form-group">
+                            <input type="text" id="txtnomest" name="txtnomest" class="form-control" placeholder="Nombre estudiante" minlength="1" maxlength="20" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="txtapeest" name="txtapeest" class="form-control" placeholder="Apellido"  minlength="1" maxlength="30" required>
+                        </div> 
+                        <div class="form-group">
+                            <input type="text" id="txtdniest" name="txtdniest" class="form-control" placeholder="DNI" required>
+                        </div> 
+                        <div class="form-group">
+                            <input type="text" id="txtdir" name="txtdir" class="form-control" placeholder="Direccion" required>
+                        </div> 
+                        <div class="form-group">
+                            <input type="text" id="txtemailest" name="txtemailest" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="txtestest" name="txtestest" class="form-control" placeholder="Estado" required>
+                        </div> 
+                        
+                        <div class="form-group">
+                            <label>Carrera</label>
+                            <select class="form-control" name="txtcar" id="txtcar">
+                                {% for t in carrera %}
+                                <option value="{{t.id}}" id="cod">{{t.nomcarrera}}</option>
+                                {%endfor%}
+                            </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Distrito</label>
+                        <select class="form-control" name="txtdis" id="txtdis">
+                            {% for t in distrito %}
+                            <option value="{{t.id}}" id="cod">{{t.nomdis}}</option>
+                            {%endfor%}
+                        </select>
+
+                        <div class="form-group">
+                            <label>Usuario</label>
+                            <select class="form-control" name="txtusu" id="txtusu">
+                                {% for t in usuario %}
+                                <option value="{{t.id}}" id="cod">{{t.nomusu}}</option>
+                                {%endfor%}
+                            </select>
+                      </div>
+                  </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                        </div>
+                       
+                        
+                    </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8 ">
+        <div class="table-responsive">
+            <h1>Listado de Estudiante</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Dni</th>
+                        <th>Direccion</th>
+                        <th>Email</th>
+                        <th>Estado</th>
+                        <th>Carrera</th>
+                        <th>Distrito</th>
+                        <th>Usuario</th>
+                        <th class="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    {% for c in estudiante %}    
+                    <tr> 
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.nomest}}</td>
+                        <td>{{c.apeest}}</td>
+                        <td>{{c.dniest}}</td>
+                        <td>{{c.direccion}}</td>
+                        <td>{{c.emailest}}</td>
+                        <td>{{c.estest}}</td>
+
+                        <td>{{c.carrera.nomcarrera}}</td>
+                        <td>{{c.distrito.nomdis}}</td>
+                        <td>{{c.usuario.nomusu}}</td>
+                        
+                    
+                        
+                        <td><a href="/edicionestudiante/{{c.id}}"  class="btn btn-info">Editar</a></td>
+                        <td><a href="/eliminarestudiante/{{c.id}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>    
+
+{% endblock %}

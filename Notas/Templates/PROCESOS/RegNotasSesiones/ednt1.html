@@ -1,0 +1,52 @@
+{% extends "../../basepro.html" %}
+
+{% block title %} Nota de sesiones{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Registro Notas</h2>
+        <div class="card">
+            <div class="card-body">
+                    <form action="/edicionns1/" method="POST" enctype="multipart/form-data">  {% csrf_token %}
+                        <div class="form-group">
+                            <label for="txtid" class="form-label">Id Alumno</label>
+                            <input type="text" id="txtid" name="txtid" class="form-control" placeholder="Id" value="{{notas.id}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtid" class="form-label">Nombre Alumno</label>
+                            <input type="text" id="txtnom" name="txtnom" class="form-control" placeholder="Id" value="{{notas.alumno.nomest}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtnt1" class="form-label">Nota Sesion 1</label>
+                            <input type="text" id="txtnt1" name="txtnt1" class="form-control" placeholder="Nota 1" value="{{notas.sesion1_nt}}" >
+                        </div>
+                        <div class="form-group">
+                            <label for="txtnt" class="form-label">Nota Sesion 2</label>
+                            <input type="text" id="txtnt2" name="txtnt2" class="form-control" placeholder="Nota 2" value="{{notas.sesion2_nt}}" >
+                        </div>
+                        <div class="form-group">
+                            <label for="txtnt3" class="form-label">Nota Sesion 3</label>
+                            <input type="text" id="txtnt3" name="txtnt3" class="form-control" placeholder="Nota 3" value="{{notas.sesion3_nt}}" >
+                        </div>
+                        <div class="form-group">
+                            <label for="txtnt" class="form-label">Nota Sesion 4</label>
+                            <input type="text" id="txtnt4" name="txtnt4" class="form-control" placeholder="Nota 4" value="{{notas.sesion4_nt}}" >
+                        </div>
+                        <div class="form-group">
+                            <label for="txtnt5" class="form-label">Nota Sesion 5</label>
+                            <input type="text" id="txtnt5" name="txtnt5" class="form-control" placeholder="Nota 5" value="{{notas.sesion5_nt}}" >
+                        </div>
+                      </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                            </div>
+                            
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

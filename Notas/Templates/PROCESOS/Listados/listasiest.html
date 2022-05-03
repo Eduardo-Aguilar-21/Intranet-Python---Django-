@@ -1,0 +1,58 @@
+{% extends "../../baseest.html" %}
+
+{% block title %}Asistencia{% endblock %}
+
+{% block body %}
+
+<div class="row">
+   
+    
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+        <div class="table-responsive">
+            <h1>Asistencia Registro</h1>
+            
+            <table class="table table-striped" >
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Profesor</th>
+                        <th>Curso</th>
+                        <th>Alumno</th>
+
+                        
+                        <th>Asistencia S1 </th>
+                        <th>Asistencia S2 </th>
+                        <th>Asistencia S3 </th>
+                        <th>Asistencia S4 </th>
+                        <th>Asistencia S5 </th>
+
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in notas %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.profesor.nompro}}</td>
+                        <td>{{c.curso.nomcur}}</td>
+                        <td>{{c.alumno.nomest}}</td>
+
+                        
+                        <td>{{c.sesion1_asis}}</td>
+                        <td>{{c.sesion2_asis}}</td>
+                        <td>{{c.sesion3_asis}}</td>
+                        <td>{{c.sesion4_asis}}</td>
+                        <td>{{c.sesion5_asis}}</td>
+                    </tr>
+                    {% endfor %}
+
+            
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

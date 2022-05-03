@@ -1,0 +1,103 @@
+{% extends "../../basepro.html" %}
+
+{% block title %} Resgistro de tarea {% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 "> 
+      {% if messages %}
+        {% for message in messages %}
+
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong class="text-dark">{{ message }}</strong>
+        </div>
+
+        {% endfor %}
+        {% endif %}
+        <h2>Resgistro de tarea</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/registartarea3/" method="POST" enctype="multipart/form-data">  {% csrf_token %}
+                       
+                    <div class="form-group">
+                        <input type="text" id="txttittar" name="txttittar" class="form-control" placeholder="Titulo" minlength="1" maxlength="20" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtdestar" name="txtdestar" class="form-control" placeholder="Descripcion"  minlength="1" maxlength="30" required>
+                    </div> 
+
+                  <div class="form-group">
+                    <label>Carrera</label>
+                    <select class="form-control" name="txtcar" id="txtcar">
+                        {% for t in carrera %}
+                        <option value="{{t.id}}" id="cod">{{t.nomcarrera}}</option>
+                        {%endfor%}
+                    </select>
+
+                    <div class="form-group">
+                        <label>Curso</label>
+                        <select class="form-control" name="txtcur" id="txtcur">
+                            {% for t in curso %}
+                            <option value="{{t.id}}" id="cod">{{t.nomcur}}</option>
+                            {%endfor%}
+                        </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Profesor</label>
+                    <select class="form-control" name="txtpro" id="txtpro">
+                        {% for t in profesor %}
+                        <option value="{{t.id}}" id="cod">{{t.nompro}}</option>
+                        {%endfor%}
+                    </select>
+              </div>
+              </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                    </div>
+                   
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8 ">
+        <div class="table-responsive">
+            <h1>Listado de Tareas</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Titulo</th>
+                        <th>Descripcion</th>
+                        <th>Carrera</th>
+                        <th>Curso</th>
+                        <th>Profesor</th>
+                      
+                        <th class="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    {% for c in tarea %}    
+                    <tr> 
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.tittar}}</td>
+                        <td>{{c.destar}}</td>
+                        <td>{{c.carrera.nomcarrera}}</td>
+                        <td>{{c.curso.nomcur}}</td>
+                        <td>{{c.profesor.nompro}}</td>
+                    
+                        <td><a href="/ediciontarea3/{{c.id}}"  class="btn btn-info">Editar</a></td>
+                        <td><a href="/eliminartarea3/{{c.id}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>    
+
+{% endblock %}

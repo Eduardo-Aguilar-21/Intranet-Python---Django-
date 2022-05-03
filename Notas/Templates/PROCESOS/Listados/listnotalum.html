@@ -1,0 +1,71 @@
+{% extends "../../baseest.html" %}
+
+{% block title %}  Notas {% endblock %}
+
+{% block body %}
+
+<div class="row">
+
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+        <div class="table-responsive">
+            <h1>Listado de Notas</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Profesor</th>
+                        <th>Curso</th>
+                        <th>Alumno</th>
+
+                        <th>Sesion 1</th>
+                        <th>Nota T1</th>
+
+                        <th>Sesion 2</th>
+                        <th>Nota T2</th>
+
+                        <th>Sesion 3</th>
+                        <th>Nota T3</th>
+
+                        <th>Sesion 4</th>
+                        <th>Nota T4</th>
+
+                        <th>Sesion 5</th>
+                        <th>Nota T5</th>
+
+                        <th>Promedio</th>
+                     
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in notas %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.profesor.nompro}}</td>
+                        <td>{{c.curso.nomcur}}</td>
+                        <td>{{c.alumno.nomest}}</td>
+
+                        <td>{{c.sesion1_nt}}</td>
+                        <td>{{c.notatarea1}}</td>
+
+                        <td>{{c.sesion2_nt}}</td>
+                        <td>{{c.notatarea2}}</td>
+
+                        <td>{{c.sesion3_nt}}</td>
+                        <td>{{c.notatarea3}}</td>
+
+                        <td>{{c.sesion4_nt}}</td>
+                        <td>{{c.notatarea4}}</td>
+
+                        <td>{{c.sesion5_nt}}</td>
+                        <td>{{c.notatarea5}}</td>
+
+                        <td>{{c.notafinal}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

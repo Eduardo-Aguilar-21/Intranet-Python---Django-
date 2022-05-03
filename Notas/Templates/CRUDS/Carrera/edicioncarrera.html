@@ -1,0 +1,34 @@
+{% extends "../../base.html" %}
+
+{% block title %} Editar Distrito {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Editar Carrera</h2>
+        <div class="card">
+            <div class="card-body">
+                    <form action="/editarcar/" method="POST" enctype="multipart/form-data">  {% csrf_token %}
+                        <div class="form-group my-2">
+                            <label for="txtid" class="form-label">Id de carrera</label>
+                            <input type="text" id="txtid" name="txtid" class="form-control" placeholder="COdigo" value="{{carrera.id}}" readonly>
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="txtnomcar" class="form-label">Nombre de carrera</label>
+                            <input type="text" id="txtnomcar" name="txtnomcar" class="form-control" placeholder="Nombre Carrera" minlength="1" maxlength="50" value="{{carrera.nomcarrera}}" required>
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="txtdescar" class="form-label">Descripcion de carrera</label>
+                            <input type="text" id="txtdescar" name="txtdescar" class="form-control" placeholder=" Descripcion" minlength="1" maxlength="20" value="{{carrera.descarrera}}" required>
+                        </div>
+                         
+                        <div class="form-group my-2">
+                            <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

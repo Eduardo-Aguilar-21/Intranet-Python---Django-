@@ -1,0 +1,71 @@
+{% extends "../../base.html" %}
+
+{% block title %} Editar Estudiante{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Editar Estudiante</h2>
+        <div class="card">
+            <div class="card-body">
+                    <form action="/editarest/" method="POST" enctype="multipart/form-data">  {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" id="txtid" name="txtid" class="form-control" placeholder="Nombre" value="{{estudiante.id}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="txtnomest" name="txtnomest" class="form-control" placeholder="Nombre estudiante" value="{{estudiante.nomest}}" minlength="1" maxlength="20" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="txtapeest" name="txtapeest" class="form-control" placeholder="Apellido" value="{{estudiante.apeest}}" minlength="1" maxlength="30" required>
+                        </div> 
+                        <div class="form-group">
+                            <input type="text" id="txtdniest" name="txtdniest" class="form-control" placeholder="DNI" value="{{estudiante.dniest}}" required>
+                        </div> 
+                        <div class="form-group">
+                            <input type="text" id="txtdir" name="txtdir" class="form-control" placeholder="Direccion" value="{{estudiante.direccion}}" required>
+                        </div> 
+                        <div class="form-group">
+                            <input type="text" id="txtemailest" name="txtemailest" class="form-control" placeholder="Email" value="{{estudiante.emailest}}" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="txtestest" name="txtestest" class="form-control" placeholder="Estado" value="{{estudiante.estest}}" required>
+                        </div> 
+                        
+                        <div class="form-group">
+                            <label>Carrera</label>
+                            <select class="form-control" name="txtcar" id="txtcar">
+                                {% for t in carrera %}
+                                <option value="{{t.id}}" id="cod" >{{t.nomcarrera}}</option>
+                                {%endfor%}
+                            </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Distrito</label>
+                        <select class="form-control" name="txtdis" id="txtdis">
+                            {% for t in distrito %}
+                            <option value="{{t.id}}" id="cod">{{t.nomdis}}</option>
+                            {%endfor%}
+                        </select>
+
+                        <div class="form-group">
+                            <label>Usuario</label>
+                            <select class="form-control" name="txtusu" id="txtusu">
+                                {% for t in usuario %}
+                                <option value="{{t.id}}" id="cod">{{t.nomusu}}</option>
+                                {%endfor%}
+                            </select>
+                      </div>
+                  </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                        </div>
+                       
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

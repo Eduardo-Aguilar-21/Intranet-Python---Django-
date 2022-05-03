@@ -1,0 +1,48 @@
+{% extends "../../baseest.html" %}
+
+{% block title %}Tarea 2{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Realizar tarea 2</h2>
+        <div class="card">
+            <div class="card-body">
+                    <form action="/edicionrealt2/" method="POST" enctype="multipart/form-data">  {% csrf_token %}
+                        <div class="form-group">
+                            <label for="txtid" class="form-label">Id Alumno</label>
+                            <input type="text" id="txtid" name="txtid" class="form-control" placeholder="Id" value="{{notas.id}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtnom" class="form-label">Nombre Alumno</label>
+                            <input type="text" id="txtnom" name="txtnom" class="form-control" placeholder="Nombre Alumno" value="{{notas.alumno.nomest}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="txttitar" class="form-label">Titulo tarea</label>
+                            <input type="text" id="txttitar" name="txttitar" class="form-control" placeholder="Titulo" value="{{notas.tarea2_info.tittar}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtdestar" class="form-label">Descripcion de la tarea</label>
+                            <input type="text" id="txtnt2" name="txtdestar" class="form-control" placeholder="Descripcion" value="{{notas.tarea2_info.destar}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtsolt" class="form-label">Solucion de la tarea</label>
+                            <textarea rows="5" cols="60" placeholder="Solucion" type="text" id="txtsolt" name="txtsolt" class="form-control">{{notas.soltarea2}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtntt" class="form-label">Nota de la tarea</label>
+                            <input type="text" id="txtntt" name="txtntt" class="form-control" placeholder="Nota Tarea" value="{{notas.notatarea2}}" readonly>
+                        </div>
+                      
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                            </div>
+                            
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

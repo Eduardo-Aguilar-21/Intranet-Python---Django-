@@ -1,0 +1,58 @@
+{% extends "../../basepro.html" %}
+
+{% block title %}Notas de Tareas{% endblock %}
+
+{% block body %}
+
+<div class="row">
+   
+    
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+        <div class="table-responsive">
+            <h1>Listado de notas de tareas</h1>
+            
+            <table class="table table-striped" >
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Profesor</th>
+                        <th>Curso</th>
+                        <th>Alumno</th>
+
+                        
+                        <th>Nota Tarea 1 </th>
+                        <th>Nota Tarea 2 </th>
+                        <th>Nota Tarea 3 </th>
+                        <th>Nota Tarea 4 </th>
+                        <th>Nota Tarea 5 </th>
+
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in notas %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.profesor.nompro}}</td>
+                        <td>{{c.curso.nomcur}}</td>
+                        <td>{{c.alumno.nomest}}</td>
+
+                        
+                        <td>{{c.notatarea1}}</td>
+                        <td>{{c.notatarea2}}</td>
+                        <td>{{c.notatarea3}}</td>
+                        <td>{{c.notatarea4}}</td>
+                        <td>{{c.notatarea5}}</td>
+                    </tr>
+                    {% endfor %}
+
+            
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "basepro.html" %}
+
+{% block title %} Gestion de Tareas {% endblock %}
+
+{% block body %}
+
+{% load static %}
+
+<div class="row  ml-4">
+    <div class="card mx-4 my-4 " style="width: 18rem;">
+        <img src="{% static 'img/usuario2.jpg' %}" class="card-img-top" alt="..."  height="300px">
+        <div class="card-body">
+            <h5 class="card-title">Publicar Tareas</h5>
+            <p class="card-text">Administre aqui las tareas a asignar segun la semana</p>
+        </div>
+        
+        <div class="card-body">
+            <div class="d-grid gap-2">
+                    <a href="/menutar/" class="btn btn-success">Ir</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mx-4 my-4 " style="width: 18rem;">
+        <img src="{% static 'img/usuario2.jpg' %}" class="card-img-top" alt="..."  height="300px">
+        <div class="card-body">
+            <h5 class="card-title">Revisar Tareas</h5>
+            <p class="card-text">Revise aqui las Tareas realizadas por los alumnos</p>
+        </div>
+        
+        <div class="card-body">
+            <div class="d-grid gap-2">
+                    <a href="/menunotatarea/" class="btn btn-success">Ir</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="card mx-4 my-4 " style="width: 18rem;">
+        <img src="{% static 'img/usuario2.jpg' %}" class="card-img-top" alt="..."  height="300px">
+        <div class="card-body">
+            <h5 class="card-title">Listado de notas de tareas</h5>
+            <p class="card-text">Vea aqui las notas registradas de las tareas del alumno </p>
+        </div>
+
+        <div class="card-body">
+            <div class="d-grid gap-2">
+                    <a href="/indlisanotasprof/" class="btn btn-success">Ir</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,286 @@
+{% extends "../base.html" %}
+
+{% block title %} Gestion de Profesor {% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 ">
+        {% if messages %}
+        {% for message in messages %}
+
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong class="text-dark">{{ message }}</strong>
+        </div>
+
+        {% endfor %}
+        {% endif %}
+        <h2>Registro de Profesor</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/registarnotas/" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                    <div class="form-group">
+                        <label>Profesor</label>
+                        <select class="form-control" name="txtpro" id="txtpro">
+                            {% for t in profesor %}
+                            <option value="{{t.id}}" id="cod">{{t.nompro}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Curso</label>
+                        <select class="form-control" name="txtcur" id="txtcur">
+                            {% for t in  curso %}
+                            <option value="{{t.id}}" id="cod">{{t.nomcur}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Alumno</label>
+                        <select class="form-control" name="txtest" id="txtest">
+                            {% for t in  alumno %}
+                            <option value="{{t.id}}" id="cod">{{t.nomest}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+
+                    <-- Nota 1 -->
+                    <div class="form-group">
+                        <input type="text" id="txtns1" name="txtns1" class="form-control"
+                            placeholder="Nota Sesion 1" minlength="1" maxlength="20" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtasis1" name="txtasis1" class="form-control" placeholder="Asistencia S1"
+                            minlength="1" maxlength="30" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tarea1</label>
+                        <select class="form-control" name="txtt1" id="txtt1">
+                            {% for t in tarea1 %}
+                            <option value="{{t.id}}" id="cod">{{t.tittar}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtsolt1" name="txtsolt1" class="form-control" placeholder="Solucion"
+                            minlength="1" maxlength="30" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtnt1" name="txtnt1" class="form-control" placeholder="Nota Tarea 1"
+                            minlength="1" maxlength="30" required>
+                    </div>
+
+                    <-- Nota 2 -->
+                    <div class="form-group">
+                        <input type="text" id="txtns2" name="txtns2" class="form-control"
+                            placeholder="Nota Sesion 2" minlength="1" maxlength="20" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtasis2" name="txtasis2" class="form-control" placeholder="Asistencia S2"
+                            minlength="1" maxlength="30" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tarea 2</label>
+                        <select class="form-control" name="txtt2" id="txtt2">
+                            {% for t in tarea2 %}
+                            <option value="{{t.id}}" id="cod">{{t.tittar}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtsolt2" name="txtsolt2" class="form-control" placeholder="Solucion 2"
+                            minlength="1" maxlength="30" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtnt2" name="txtnt2" class="form-control" placeholder="Nota Tarea 2"
+                            minlength="1" maxlength="30" required>
+                    </div>
+
+                    <-- Nota 3 -->
+                    <div class="form-group">
+                        <input type="text" id="txtns3" name="txtns3" class="form-control"
+                            placeholder="Nota Sesion 3" minlength="1" maxlength="20" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtasis3" name="txtasis3" class="form-control" placeholder="Asistencia S3"
+                            minlength="1" maxlength="30" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tarea 3</label>
+                        <select class="form-control" name="txtt3" id="txtt3">
+                            {% for t in tarea3 %}
+                            <option value="{{t.id}}" id="cod">{{t.tittar}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtsolt3" name="txtsolt3" class="form-control" placeholder="Solucion T3"
+                            minlength="1" maxlength="30" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtnt3" name="txtnt3" class="form-control" placeholder="Nota Tarea 3"
+                            minlength="1" maxlength="30" required>
+                    </div>
+
+                   
+                    <-- Nota 4 -->
+                    <div class="form-group">
+                        <input type="text" id="txtns4" name="txtns4" class="form-control"
+                            placeholder="Nota Sesion 4" minlength="1" maxlength="20" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtasis4" name="txtasis4" class="form-control" placeholder="Asistencia S4"
+                            minlength="1" maxlength="30" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tarea1</label>
+                        <select class="form-control" name="txtt4" id="txtt4">
+                            {% for t in tarea4 %}
+                            <option value="{{t.id}}" id="cod">{{t.tittar}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtsolt4" name="txtsolt4" class="form-control" placeholder="Solucion S4"
+                            minlength="1" maxlength="30" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtnt4" name="txtnt4" class="form-control" placeholder="Nota Tarea 4"
+                            minlength="1" maxlength="30" required>
+                    </div>
+
+                   
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                    </div>
+
+                    <-- Nota 5 -->
+                    <div class="form-group">
+                        <input type="text" id="txtns5" name="txtns5" class="form-control"
+                            placeholder="Nota Sesion 5" minlength="1" maxlength="20" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtasis5" name="txtasis5" class="form-control" placeholder="Asistencia S5"
+                            minlength="1" maxlength="30" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tarea 5</label>
+                        <select class="form-control" name="txtt5" id="txtt5">
+                            {% for t in tarea5 %}
+                            <option value="{{t.id}}" id="cod">{{t.tittar}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtsolt5" name="txtsolt5" class="form-control" placeholder="Solucion T5"
+                            minlength="1" maxlength="30" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtnt5" name="txtnt5" class="form-control" placeholder="Nota Tarea 5"
+                            minlength="1" maxlength="30" required>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8 ">
+        <div class="table-responsive">
+            <h1>Listado de Profesores</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Profesor</th>
+                        <th>Curso</th>
+                        <th>Alumno</th>
+
+                        <th>Sesion 1</th>
+                        <th>Asistencia S1</th>
+                        <th>Tarea 1</th>
+                        <th>Solucion T1</th>
+                        <th>Nota T1</th>
+
+                        <th>Sesion 2</th>
+                        <th>Asistencia S2</th>
+                        <th>Tarea 2</th>
+                        <th>Solucion T2</th>
+                        <th>Nota T2</th>
+
+                        <th>Sesion 3</th>
+                        <th>Asistencia S3</th>
+                        <th>Tarea 3</th>
+                        <th>Solucion T3</th>
+                        <th>Nota T3</th>
+
+                        <th>Sesion 4</th>
+                        <th>Asistencia S4</th>
+                        <th>Tarea 4</th>
+                        <th>Solucion T4</th>
+                        <th>Nota T4</th>
+
+                        <th>Sesion 5</th>
+                        <th>Asistencia S5</th>
+                        <th>Tarea 5</th>
+                        <th>Solucion T5</th>
+                        <th>Nota T5</th>
+
+                        <th>Promedio</th>
+                        <th class="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in notas %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.profesor.nompro}}</td>
+                        <td>{{c.curso.nomcur}}</td>
+                        <td>{{c.alumno.nomest}}</td>
+
+                        <td>{{c.sesion1_nt}}</td>
+                        <td>{{c.sesion1_asis}}</td>
+                        <td>{{c.tarea1_info.tittar}}</td>
+                        <td>{{c.soltarea1}}</td>
+                        <td>{{c.notatarea1}}</td>
+
+                        <td>{{c.sesion2_nt}}</td>
+                        <td>{{c.sesion2_asis}}</td>
+                        <td>{{c.tarea2_info.tittar}}</td>
+                        <td>{{c.soltarea2}}</td>
+                        <td>{{c.notatarea2}}</td>
+
+                        <td>{{c.sesion3_nt}}</td>
+                        <td>{{c.sesion3_asis}}</td>
+                        <td>{{c.tarea3_info.tittar}}</td>
+                        <td>{{c.soltarea3}}</td>
+                        <td>{{c.notatarea3}}</td>
+
+                        <td>{{c.sesion4_nt}}</td>
+                        <td>{{c.sesion4_asis}}</td>
+                        <td>{{c.tarea4_info.tittar}}</td>
+                        <td>{{c.soltarea4}}</td>
+                        <td>{{c.notatarea4}}</td>
+
+                        <td>{{c.sesion5_nt}}</td>
+                        <td>{{c.sesion5_asis}}</td>
+                        <td>{{c.tarea5_info.tittar}}</td>
+                        <td>{{c.soltarea5}}</td>
+                        <td>{{c.notatarea5}}</td>
+
+                        <td>{{c.notafinal}}</td>
+
+
+
+                        <td><a href="/edicionnotas/{{c.id}}" class="btn btn-info">Editar</a></td>
+                        <td><a href="/eliminarnotas/{{c.id}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
